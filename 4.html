@@ -29,17 +29,68 @@
 <body>
   <h1><a href="index.html">WEB</a></h1>
 <ol>
-  <li><a href="1.html">HTML</a></li>
-  <li><a href="2.html">CSS</a></li>
-  <li><a href="3.html">JavaScript</a></li>
-  <li><a href="4.html" style="color:green;text-decoration: underline">★★★</a></li>
+
 </ol>
 
 <p>
-  <iframe width="600" height="400" src="https://www.youtube.com/embed/WcED6Ia1IY4?list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <iframe width="600" height="400" src="https://www.youtube.com/embed/8-rCMmamtDE?list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <iframe width="600" height="400" src="https://www.youtube.com/embed/MLjCVUspcDo?list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <iframe width="600" height="400" src="https://www.youtube.com/embed/4ir8XAf7wxI?list=PLuHgQVnccGMAnWgUYiAW2cTzSBywFO75B" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+const loginForm = document.querySelector("#login-form"); <br>
+const loginInput = document.querySelector("#login-form input");<br>
+const greeting = document.querySelector("#greeting");<br><br>
+
+const HIDDEN_CLASSNAME = "hidden"; <br>
+const USERNAME_KEY = "username"; <br><br>
+
+function onLoginSubmit(event) { // JS는 함수를 호출하면서 인자를 주는데, 그 인자에는 event에 관한 정보들이 담겨있음 <br>
+  event.preventDefault(); // 그 정보에는 브라우저의 기본동작 새로고침을 막아주는 동작도 있음 <br>
+  loginForm.classList.add(HIDDEN_CLASSNAME); // login-form을 다시 숨겨줌 <br>
+  const username = loginInput.value; // loginInput.value를  username에 저장(사용자가 입력한 값을 변수에 저장) <br>
+  localStorage.setItem(USERNAME_KEY, username); // 사용자가 입력한값을 localStorage에 저장 key(username), value(입력값) <br>
+  paintGreetings(username); // 사용자 입력값(input)을 인자로 넣어주고 paintGreetings함수 호출 <br>
+} <br><br>
+
+function paintGreetings(username) { // 사용자가 입력한 값을 인자로 넣어주고 <br>
+  greeting.innerText = `Hello ${username}`; // 비어있는 greeting(h1)안에 텍스트를 넣어주고 <br>
+  greeting.classList.remove(HIDDEN_CLASSNAME); // 그다음 greeting(h1)에 있는 hidden이라는 클래스명을 제거해줌.<br>
+}                                              // 그럼 화면에 사용자가 입력한 값(`Hello ${username}`)이 표시가 됨<br><br>
+
+// =========================Start=================================================<br>
+const savedUsername = localStorage.getItem(USERNAME_KEY); // USERNAME_KEY를 가지고 localStorage에 확인 후 변수에 저장<br><br>
+
+if (savedUsername === null) { //savedUsername이 null이면 참 코드 실행<br>
+  loginForm.classList.remove(HIDDEN_CLASSNAME); //loginForm으로 부터 HIDDEN_CLASSNAME을 제거함<br>
+  (.form에서 class="hidden" 삭제) 그럼 로그인 화면이 표시됨 <br>
+  loginForm.addEventListener("submit", onLoginSubmit); //그다음 loginForm에 addEventListener가 submit을 기다림(사용자가 값을 입력할때 까지 대기)<br>
+                                                        // submit event가 발생하면 onLoginSubmit함수 실행(값을 입력하면 함수 실행) <br>
+} else { <br>
+  paintGreetings(savedUsername); // savedUsername이 null아니면? <br>
+                                 // paintGreetings함수가 localStorage에 저장된 값을 인자로 받고 paintGreetings함수(화면에 표시) 실행 <br>
+}<br><br>
+
+<!DOCTYPE html><br>
+html lang="en"<br>
+    head<br>
+        meta charset="UTF-8"<br>
+        meta name="viewport" content="width=device-width, initial-scale=1.0"<br>
+        link rel="stylesheet" href="style.css"<br>
+        title App Project title<br>
+    /head<br>
+    body<br>
+        form class="hidden" id="login-form"<br>
+            input<br>
+                required<br>
+                maxlength="15"<br>
+                type="text"<br>
+                placeholder="ID를 입력하세요."<br>
+            /><br>
+            input type="submit" value="Log In" /><br>
+        /form<br>
+        h1 class="hidden" id="greeting">/h1><br>
+        h2 id="clock">/h2><br>
+        script src="js/greetings.js">/script><br>
+        script src="js/clock.js">/script><br>
+    /body<br>
+/html<br><br>
+
 </p>
 
 <p>

@@ -3,16 +3,7 @@
 <head>
   <title>WEB1 - HTML</title>
   <meta charset="utf-8">
-  <style>
-    a {
-      color:black;
-      text-decoration: none;
-    }
-    h1 {
-      font-size: 60px;
-      text-align:center;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
   <!--구글 통계 코드 -->
   <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QGVT6R11SJ"></script>
@@ -27,27 +18,23 @@
 
 <body>
   <h1><a href="index.html">WEB</a></h1>
-<ol>
-  <li><a href="1.html" style="color:blue;text-decoration: underline">HTML</a></li>
-  <li><a href="2.html">CSS</a></li>
-  <li><a href="3.html">JavaScript</a></li>
-  <li><a href="4.html">★★★</a></li>
-</ol>
+  <div id="grid">
+    <ol>
+      <li><a href="1.html" style="color:blue;text-decoration: underline">HTML</a></li>
+      <li><a href="2.html">CSS</a></li>
+      <li><a href="3.html">JavaScript</a></li>
+      <li><a href="box.html">box model</a></li>
+      <li><a href="test.html">TEST</a></li>
+    </ol>
 
-<!-- font 태그 사용(현재 사용하지 않음!!)
-<h1><a href="index.html"><font color="red">WEB</font></a></h1>
-<ol>
-<li><a href="1.html"><font color="red">HTML</font></a></li>
-<li><a href="2.html"><font color="red">CSS</font></a></li>
-<li><a href="3.html"><font color="red">JavaScript</font></a></li>
-</ol>
--->
+<div id="article">
+<p><a href="https://taeyun1.github.io/web1/" target="_blank" title="내 사이트">내 사이트 바로가기</p>
 
-<h2>HTML</h2>
-
+<!-- 유튜브 영상링크
 <p>
   <iframe width="640" height="360" src="https://www.youtube.com/embed/7T7r_oSp0SE?list=PLuHgQVnccGMDZP7FJ_ZsUrdCGH68ppvPb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </p>
+-->
 <h2><a href="https://www.w3.org/TR/html52/" target="_blank" title="링크툴팁">HTML이란 무엇인가?</a></h2>
 
 <p>국내 신종 코로나바이러스 감염증<strong><u>(밑줄 진하게!!)</u></strong>
@@ -57,15 +44,13 @@
 
 전날(1천316명)보다 62명이나 많다.</p>
 
-<p style="margin-top:40px;"> HTML 단락입니다.</p>
-Web은 저작권이 없는 순수한 공동체이다.<br>
-이미지를 웹페이지에 포함시킬때 사용되는 tag의 이름은 img ser="이미지소스" width="가로크기"
-<img src="dd.jpg" width="100%" height="100%">
-
-글씨 색깔넣는 태그 span style="color:색깔" /span
-<p>My mother has <span style="color:blue">blue</span> eyes.
-
-<span style="color:blue"><h1> W3C</h1></span></p>
+    <p> HTML 단락입니다. <br>
+      Web은 저작권이 없는 순수한 공동체이다.<br>
+      이미지를 웹페이지에 포함시킬때 사용되는 tag의 이름은 img ser="이미지소스" width="가로크기"
+      <img src="dd.jpg" width="70%" height="50%">
+    </p>
+  </div>
+</div>
 
 <p>
   <div id="disqus_thread"></div>
